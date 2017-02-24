@@ -1,0 +1,19 @@
+info:
+  component: 'Locationservice'
+
+spring:
+    application:
+        name: locations
+
+endpoints:
+    restart:
+        enabled: true
+    shutdown:
+        enabled: true
+    health:
+        sensitive: false
+    info:
+      enabled: true
+
+server:
+    port: 8081

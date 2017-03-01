@@ -4,17 +4,7 @@ info:
 spring:
     application:
         name: locations
-
-endpoints:
-    restart:
-        enabled: true
-    shutdown:
-        enabled: true
-    health:
-        sensitive: false
-    info:
-      enabled: true
-
+        
 ---
 # For deployment without Docker containers
 spring:

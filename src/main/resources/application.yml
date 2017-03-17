@@ -4,7 +4,7 @@ info:
 spring:
     application:
         name: locations
-        
+
 ---
 # For deployment without Docker containers
 spring:

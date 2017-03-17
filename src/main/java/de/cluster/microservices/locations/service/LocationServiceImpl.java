@@ -7,7 +7,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import de.cluster.microservices.locations.dao.LocationRepository;
 import de.cluster.microservices.locations.model.Location;
 
@@ -28,17 +27,10 @@ public class LocationServiceImpl implements LocationService{
 		LOG.warn("/***USE FOR TESTS ONLY***/");
 		try {
 			if(getLocations().size() == 0) {
-				createLocation(0, "Jahrhunderthalle", "Sesamstraße", "42", "54123", "Bochum", "Deutschland");
-				createLocation(1, "Kolosseum", "Emperial Street", "23", "864423", "Rom", "Italien");
-				createLocation(2, "Himalaya", "Sesamstraße", "4242", "101474", "Himachel", "Indien");
-				createLocation(3, "Port Royal", "Servesa Terrace", "112", "68768768", "Espaniol City", "Spanien");
-				createLocation(4, "Bermuda Dreieck", "Sesamstraße", "43c", "54123", "Bochum", "Deutschland");
-				createLocation(5, "Bermuda Dreieck", "Bahama Mama", "unkwnon", "unwon", "Bahamas", "Bahamas");
-				createLocation(6, "KFC", "Sesamstraße", "42", "54123", "Bochum", "Deutschland");
-				createLocation(7, "Eifelturm", "Sesamstraße", "42", "54123", "Bochum", "Deutschland");
-				createLocation(8, "Ocean Tower", "Evergreen Terrace", "742", "54123", "Springfield", "United States of America");
-				createLocation(9, "Ueno Park", "Shinobitzu", "17", "4w123", "Tokio", "Japan");
-				createLocation(10, "Meji Shrine", "Tachidi Street", "18", "554123", "Tokio", "Japan");
+				createLocation(0, "Jahrhunderthalle", "An der Jahrhunderthalle", "1", "44793", "Bochum", "Deutschland");
+				createLocation(1, "Silent Sinners", "Rittershausstraße", "65", "44137", "Dortmund", "Deutschland");
+				createLocation(2, "Hochschule Bochum", "Lennershofstraße", "140", "44801", "Bochum", "Deutschland");
+				createLocation(3, "Times Square Visitors Center", "W 44th St", "1", "10036", "New York City", "United States");
 			}
 		} catch (Exception e) {
 			LOG.error("Could not create Test Data");
@@ -54,20 +46,18 @@ public class LocationServiceImpl implements LocationService{
 	@Override
 	public Location createLocation(long id, String name, String street,String housenumber,String postalcode,String city,String country) {
 		return locationRepo.save(new Location(id,name,street,housenumber,postalcode,city,country));
-
 	}
 	
 	@Override
 	public Location updateLocation(long id, String name, String street,String housenumber,String postalcode,String city,String country) {
 		return locationRepo.save(new Location(id,name,street,housenumber,postalcode,city,country));
-
 	}
 	
 	@Override
 	public Location deleteLocation(long id){
-		Location tmp = locationRepo.findOne(id);
-		locationRepo.delete(tmp);
-		return	tmp;
+		Location loc = locationRepo.findOne(id);
+		locationRepo.delete(loc);
+		return	loc;
 	}
 
 	@Override

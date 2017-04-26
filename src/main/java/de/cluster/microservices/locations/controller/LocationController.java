@@ -37,7 +37,7 @@ public class LocationController {
 	 */
 	@RequestMapping(value = "/locations", method = RequestMethod.GET)
 	public ResponseEntity<List<Location>> getAllLocations() {
-		LOG.info("Fetching all Location");
+		LOG.info("Fetching all Locations");
 		return new ResponseEntity<>(locationService.getLocations(), HttpStatus.OK);
 	}
 

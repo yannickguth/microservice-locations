@@ -5,11 +5,11 @@ spring:
     application:
         name: locations
     zipkin:
-            baseUrl: http://10.1.101.6:9411
-        sleuth:
-            enabled: true
-            sampler:
-                percentage: 1.0
+        baseUrl: http://10.1.101.6:9411
+    sleuth:
+        enabled: true
+        sampler:
+            percentage: 1.0
 
 logging:
   level:
